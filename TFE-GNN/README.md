@@ -1,22 +1,27 @@
-# TFE-GNN: A Temporal Fusion Encoder Using Graph Neural Networks for Fine-grained Encrypted Traffic Classification
+# TFE-GNN
 
 
-Official implementation of the WWW'23 research paper: TFE-GNN: A Temporal Fusion Encoder Using Graph Neural Networks for Fine-grained Encrypted Traffic Classification. [[ACM](https://dl.acm.org/doi/abs/10.1145/3543507.3583227)]
+Temporal Fusion Encoder using Graph Neural Networks for fine-grained encrypted traffic classification (WWW'23). Official implementation.
+
+Paper: [ACM](https://dl.acm.org/doi/abs/10.1145/3543507.3583227)
 
 
 ![Method](./figures/TFE-GNN.png)
 
 
 
-## News
+## Repository Structure
 
-🔥 **[2024-12]** Our latest work [MH-Net](https://github.com/ViktorAxelsen/MH-Net) was accepted by AAAI 2025. We hope our work can bring some novel insights to the community, empowering network traffic identification with graph representation learning.
+- `train.py`: Training entry for TFE-GNN.
+- `test.py`: Evaluation script on saved checkpoints.
+- `preprocess.py`: Construct byte-level traffic graphs from preprocessed npz.
+- `pcap2npy.py`: Convert pcap/pcapng flows to npz features for graph building.
+- `config.py`: Paths and dataset configuration (edit `DIR_PATH_DICT` and related paths).
+- `utils.py`: Utility functions (e.g., header handling in `remove()`).
+- `CATE/`: Dataset categorization details.
+- `figures/TFE-GNN.png`: Method illustration.
 
-🌟 **[2024-01]** [CLE-TFE](https://github.com/ViktorAxelsen/CLE-TFE) is now open source, which is an improved version of TFE-GNN. 
-
-
-
-## Environment Setup
+## Environment
 
 ```bash
 # python==3.8
@@ -27,7 +32,7 @@ pip install scapy
 ```
 
 
-## Pre-processing
+## Data Preparation
 
 ### Download Datasets
 
@@ -121,41 +126,4 @@ python test.py --dataset iscx-nonvpn --cuda 0
 python test.py --dataset iscx-tor --cuda 0
 # ISCX-NonTOR
 python test.py --dataset iscx-nontor --cuda 0
-```
-
-
-## Potential Bugs
-
-- **remove() function in utils.py**
-
-  + The location of the header in the packet may change, so check this when using other datasets.
-
-
-
-
-## Note
-
-There are some reasons for possible differences in reproduction results.
-
-- System Environments. (including GPU driver version, etc.) (Verified)
-
-- Data Partition.
-
-  + Since most of the current network traffic datasets do not have a unified way to partition the training dataset and test dataset, this may lead to differences in results, which is normal.
-
-In addition to potential differences, we recommend adjusting the hyperparameters in your data and environment configuration to achieve optimal results. 
-
-
-
-
-## Citation
-
-```bibtex
-@Inproceedings{TFE-GNN,
-  author={Haozhen Zhang and Le Yu and Xi Xiao* and Qing Li* and Francesco Mercaldo and Xiapu Luo and Qixu Liu},
-  year="2023",
-  title="TFE-GNN: A Temporal Fusion Encoder Using Graph Neural Networks for Fine-grained Encrypted Traffic Classification",
-  booktitle="The Web Conference",
-  pages="2066–2075",
-}
 ```
