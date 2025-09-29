@@ -33,7 +33,7 @@ pip install torch torchvision torchaudio numpy
 
 Refer to each subproject README for exact, version-pinned requirements.
 
-## Data Expectations (high-level)
+## Data Expectations
 
 - `Fs-net/`
   - Uses text files with lines formatted as `<label> v1 v2 ... v256`.
