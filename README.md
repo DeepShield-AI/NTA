@@ -19,7 +19,7 @@ This repository aggregates multiple network traffic classification projects. Eac
   - Provides full preprocessing from pcap to byte-level traffic graphs, training and evaluation scripts.
   - See `TFE-GNN/README.md` for environment setup and commands.
 
-## Environments (summary)
+## Environments
 
 - Fs-net (PyTorch path): Python 3.8+, PyTorch 1.9+, NumPy
 - 1d-CNN (PyTorch): Python 3.8+, PyTorch 1.9+, torchvision, NumPy
@@ -84,5 +84,6 @@ Refer to each subproject README for exact, version-pinned requirements.
 
 ## References
 
+- 1d-CNN paper : https://dl.acm.org/doi/10.1109/ISI.2017.8004872
+- Fs-net paper : https://ieeexplore.ieee.org/document/8737507
 - TFE-GNN paper: https://dl.acm.org/doi/abs/10.1145/3543507.3583227
-- Original 1d-CNN reference: https://github.com/mydre/wang-wei-s-research
